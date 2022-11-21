@@ -2,11 +2,14 @@ package praktic01;
 
 public class Product {
     private String name;
-    private Double price;
+    protected Double price;
 
     public Product(String name, Double price) {
         this.name = name;
         this.price = price;
+    }
+
+    public Product(String name2) {
     }
 
     public String getName() {
@@ -23,5 +26,10 @@ public class Product {
         }
         this.price = value;
 
+    }
+
+    @Override
+    public String toString() {
+        return String.format("Название: %s Цена: %,.2f", this.name, this.price);
     }
 }
