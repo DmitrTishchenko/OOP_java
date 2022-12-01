@@ -1,10 +1,15 @@
 package praktik04;
 
-public class Archer extends Warrior {
+public class Archer extends Warrior<Bow, LittleShield> {
     private Integer range;
 
-    public Archer(String name, Bow weapon, Integer healthPoint, Integer range) {
-        super(name, weapon, healthPoint);
+    public Archer(String name, Integer healthPoint, Bow weapon, LittleShield shield, Integer range) {
+        super(name, healthPoint, weapon, shield);
+        this.range = range;
+    }
+
+    public Archer(String name, Integer healthPoint, Bow weapon, Integer range) {
+        super(name, healthPoint, weapon);
         this.range = range;
     }
 

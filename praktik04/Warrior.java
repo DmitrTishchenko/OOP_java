@@ -1,11 +1,19 @@
 package praktik04;
 
-public abstract class Warrior {
+public abstract class Warrior<T, S> {
     private String name;
-    private Weapon weapon;
+    private T weapon;
+    private S shield;
     private Integer healthPoint;
 
-    public Warrior(String name, Weapon weapon, Integer healthPoint) {
+    public Warrior(String name, Integer healthPoint, T weapon, S shield) {
+        this.name = name;
+        this.weapon = weapon;
+        this.shield = shield;
+        this.healthPoint = healthPoint;
+    }
+
+    public Warrior(String name, Integer healthPoint, T weapon) {
         this.name = name;
         this.weapon = weapon;
         this.healthPoint = healthPoint;
@@ -15,8 +23,12 @@ public abstract class Warrior {
         return name;
     }
 
-    public Weapon getWeapon() {
+    public T getWeapon() {
         return weapon;
+    }
+
+    public S getShield() {
+        return shield;
     }
 
     public Integer getHealthPoint() {
@@ -29,6 +41,11 @@ public abstract class Warrior {
 
     @Override
     public String toString() {
-        return String.format("%s %s %d", name, weapon, healthPoint);
+        if (this.shield == null) {
+            return String.format("%s  %s  health: %d", name, weapon, healthPoint);
+        }
+        return String.format("%s  %s  %s  health: %d", name, weapon, shield, healthPoint);
+
     }
+
 }

@@ -1,9 +1,13 @@
 package praktik04;
 
-public class Hero extends Warrior {
+public class Hero extends Warrior<Weapon, BigShield> {
 
-    public Hero(String name, Weapon weapon, Integer healthPoint) {
-        super(name, weapon, healthPoint);
+    public Hero(String name, Integer healthPoint, Weapon weapon, BigShield shield) {
+        super(name, healthPoint, weapon, shield);
+    }
+
+    public Hero(String name, Integer healthPoint, Weapon weapon) {
+        super(name, healthPoint, weapon);
     }
 
     @Override

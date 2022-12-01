@@ -1,11 +1,17 @@
 package praktik04;
 
-public class Mage extends Warrior {
+public class Mage extends Warrior<Staff, AverageShield> {
     private Integer range;
     private Integer mana;
 
+    public Mage(String name, Staff weapon, Integer healthPoint, Integer range, Integer mana, AverageShield shield) {
+        super(name, healthPoint, weapon, shield);
+        this.range = range;
+        this.mana = mana;
+    }
+
     public Mage(String name, Staff weapon, Integer healthPoint, Integer range, Integer mana) {
-        super(name, weapon, healthPoint);
+        super(name, healthPoint, weapon);
         this.range = range;
         this.mana = mana;
     }
